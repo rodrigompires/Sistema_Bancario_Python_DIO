@@ -487,6 +487,7 @@ def carregar_dados():
 
 
 if __name__ == "__main__":
+    carregar_dados()
     while True:
         menu = """
 ############# Seja Bem Vindo(a) ao Banco Real Madruga #############
