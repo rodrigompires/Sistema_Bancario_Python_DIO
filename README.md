@@ -84,6 +84,21 @@ Listagens (clientes/contas): cada registro é impresso em um bloco com:
 
 <img width="458" height="109" alt="image" src="https://github.com/user-attachments/assets/c06b6317-fbc0-4801-a2fb-b1b5cd5799f2" />
 
+<br></br>
+Extrato
+
+<img width="529" height="290" alt="image" src="https://github.com/user-attachments/assets/10bb422a-8327-41ae-afe4-47fced4de7eb" />
+
+<br></br>
+Lista de Clientes
+
+<img width="448" height="307" alt="image" src="https://github.com/user-attachments/assets/ebd5ccaa-7a49-4ad8-8e48-b225a91aad7c" />
+
+<br></br>
+Lista de Contas
+
+<img width="482" height="439" alt="image" src="https://github.com/user-attachments/assets/aa238b46-77e4-4cc2-a359-9efbf06400a7" />
+
 Separadores aumentam dinamicamente para combinar com a maior linha do bloco (melhora leitura quando endereços são longos).
 
 <br><br>
