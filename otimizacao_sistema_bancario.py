@@ -284,19 +284,19 @@ def exibir_extrato(numero_conta, *, incluir_detalhes=True):
     limite = conta_encontrada.get("limite", 0.00)
     saldo_atual = conta_encontrada['saldo']
 
-    # Larguras das colunas
+    
     largura_data = 20
     largura_historico = 35
     largura_doc = 10
-    largura_valor = 15  # inclui sinal
+    largura_valor = 15
 
     largura_total = largura_data + largura_historico + largura_doc + largura_valor
 
-    # Cabeçalho do extrato
+    
     print("\n" + " " * ((largura_total - 14)//2) + "EXTRATO BANCÁRIO")
     print("-" * largura_total)
 
-    # Mostra detalhes se habilitado
+    
     if incluir_detalhes:
         print(f"Cliente: {nome_cliente}")
         print(f"Banco: REAL MADRUGA")
@@ -304,7 +304,7 @@ def exibir_extrato(numero_conta, *, incluir_detalhes=True):
         print(f"Conta: {numero_conta}")
         print("-" * largura_total)
 
-    # Cabeçalho da tabela
+    
     print(f"{'DATA':<{largura_data}}{'HISTÓRICO':<{largura_historico}}"
           f"{'DOC':<{largura_doc}}{'VALOR':>{largura_valor}}")
     print("-" * largura_total)
@@ -322,20 +322,20 @@ def exibir_extrato(numero_conta, *, incluir_detalhes=True):
             descricao = t.get("descricao", "")
             valor = abs(t.get("valor", 0))
             sinal = "C" if t.get("valor", 0) > 0 else "D"
-            doc = t.get("doc", "00000")  # Número de DOC
+            doc = t.get("doc", "00000")
 
             historico = tipo
             if descricao:
                 historico += f" - {descricao}"
             historico = historico[:largura_historico]
 
-            # Formata valor com sinal à direita
+            
             valor_formatado = f"{valor:,.2f} {sinal}"
 
             print(f"{data:<{largura_data}}{historico:<{largura_historico}}"
                   f"{doc:<{largura_doc}}{valor_formatado:>{largura_valor}}")
 
-    # Rodapé com valores alinhados à coluna VALOR
+    
     print("-" * largura_total)
     print(f"{'SALDO ATUAL:':<{largura_data + largura_historico + largura_doc}}"
           f"{saldo_atual:>{largura_valor},.2f}")
