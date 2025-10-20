@@ -1,0 +1,85 @@
+{
+    "clientes": [
+        {
+            "nome": "Rodrigo José De Moraes Pires",
+            "data_nascimento": "11/01/1983",
+            "cpf": "11111111111",
+            "endereco": "Rua X, 10, Vila Xyz, São Paulo / Sp"
+        },
+        {
+            "nome": "Caio Araujo De Moraes",
+            "data_nascimento": "04/03/2024",
+            "cpf": "00000000001",
+            "endereco": "Rua X, 10, Vila Xyz, São Paulo / Sp"
+        }
+    ],
+    "contas": [
+        {
+            "agencia": "0001",
+            "numero_conta": 1,
+            "cliente": {
+                "nome": "Rodrigo José De Moraes Pires",
+                "data_nascimento": "11/01/1983",
+                "cpf": "11111111111",
+                "endereco": "Rua X, 10, Vila Xyz, São Paulo / Sp"
+            },
+            "saldo": 500000.0,
+            "transacoes": [
+                {
+                    "doc": "00001",
+                    "tipo": "DEPÓSITO",
+                    "valor": 1000000.0,
+                    "descricao": "INICIAL",
+                    "data": "20/10/2025 17:02:57"
+                },
+                {
+                    "doc": "00003",
+                    "tipo": "SAQUE",
+                    "valor": -500000.0,
+                    "descricao": "TRANSFERÊNCIA",
+                    "data": "20/10/2025 17:03:48"
+                }
+            ]
+        },
+        {
+            "agencia": "0001",
+            "numero_conta": 2,
+            "cliente": {
+                "nome": "Caio Araujo De Moraes",
+                "data_nascimento": "04/03/2024",
+                "cpf": "00000000001",
+                "endereco": "Rua X, 10, Vila Xyz, São Paulo / Sp"
+            },
+            "saldo": 50000.0,
+            "transacoes": [
+                {
+                    "doc": "00002",
+                    "tipo": "DEPÓSITO",
+                    "valor": 50000.0,
+                    "descricao": "INICIAL",
+                    "data": "20/10/2025 17:03:23"
+                }
+            ]
+        },
+        {
+            "agencia": "0001",
+            "numero_conta": 3,
+            "cliente": {
+                "nome": "Rodrigo José De Moraes Pires",
+                "data_nascimento": "11/01/1983",
+                "cpf": "11111111111",
+                "endereco": "Rua X, 10, Vila Xyz, São Paulo / Sp"
+            },
+            "saldo": 500000.0,
+            "transacoes": [
+                {
+                    "doc": "00004",
+                    "tipo": "DEPÓSITO",
+                    "valor": 500000.0,
+                    "descricao": "PIX RECEBIDO",
+                    "data": "20/10/2025 17:04:05"
+                }
+            ]
+        }
+    ]
+}
