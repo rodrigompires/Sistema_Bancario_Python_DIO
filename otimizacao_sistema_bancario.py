@@ -485,6 +485,85 @@ def carregar_dados():
         salvar_dados()
 
 
+def excluir_conta():
+
+    carregar_dados()
+
+    titulo = "EXCLUSÃO DE CONTA"
+    largura = len(titulo) + 20
+    print("\n" + "-" * largura)
+    print(titulo.center(largura))
+    print("-" * largura)
+
+    while True:
+        try:
+            numero = int(input("Informe o número da conta a excluir: ").strip())
+            if numero <= 0:
+                raise ValueError("⚠️ Número de conta inválido.")
+        except ValueError as e:
+            print(f"❌ ERRO: {e}")
+            print()
+            if input("Deseja tentar novamente? (S/N): ").strip().upper() != "S":
+                print("❎ Operação cancelada.")
+                return
+            continue
+            
+        conta_encontrada = None
+        for conta in contas_clientes:
+            if conta["numero_conta"] == numero:
+                conta_encontrada = conta
+                break
+
+        if not conta_encontrada:
+            print(f"❌ ERRO: ⚠️ Conta nº {numero} não encontrada.\n")
+            if input("Deseja tentar novamente? (S/N): ").strip().upper() != "S":
+                print("❎ Operação cancelada.")
+                return
+            continue
+
+        cliente = conta_encontrada["cliente"]
+        saldo = conta_encontrada.get("saldo", 0)
+
+        info_conta = [
+            f"Agência: {conta_encontrada['agencia']}",
+            f"Número da conta: {conta_encontrada['numero_conta']}",
+            f"Cliente: {cliente['nome']}",
+            f"CPF: {cliente['cpf']}",
+            f"Data de nascimento: {cliente['data_nascimento']}",
+            f"Endereço: {cliente['endereco']}",
+            f"Saldo atual: R$ {saldo:,.2f}"
+        ]
+
+        print("\n" + "-" * largura)
+        print("📋 DADOS DA CONTA".center(largura))
+        print("-" * largura)
+
+        for linha in info_conta:
+            print(linha)
+
+        print("-" * largura)
+
+        if saldo != 0:
+            print(f"⚠️  Não é possível excluir a conta nº {numero}, pois o saldo é de R$ {saldo:,.2f}.")
+            print("💡 Zere o saldo (saque ou transferência) antes de excluir.\n")
+            return
+
+        confirmacao = input(f"Tem certeza que deseja excluir a conta nº {numero}? (S/N): ").strip().upper()
+        if confirmacao != "S":
+            print("❎ Operação cancelada pelo usuário.")
+            return
+
+        
+        contas_clientes.remove(conta_encontrada)
+        
+
+        print(f"✅ Conta nº {numero} excluída com sucesso!\n")
+        print("-" * largura)
+        salvar_dados()
+        break
+
+
+
 
 if __name__ == "__main__":
     carregar_dados()
@@ -499,7 +578,7 @@ CADASTROS E ETC          | FINANCEIRO
 [1] => Cadastrar Cliente | [D] => Depositar
 [2] => Criar Conta       | [S] => Sacar
 [3] => Listar Clientes   | [E] => Extrato
-[4] => Listar Contas     |
+[4] => Listar Contas     | [X] => Excluir Conta
 [0] => Sair              |
                          |
 ============================================
@@ -613,6 +692,9 @@ CADASTROS E ETC          | FINANCEIRO
                 exibir_extrato(numero_conta, incluir_detalhes=True)
             except LookupError as e:
                 print(f"\n❌ ERRO: {e}")
+
+        elif opcao == "X":
+            excluir_conta()
 
         elif opcao == "0":
             print("👋 Saindo do sistema...")
