@@ -13,6 +13,8 @@ Um sistema bancário simples em linha de comando (CLI) para fins didáticos — 
 
 ✅ Exibição de extrato formatado (colunas alinhadas, totais e rodapé).
 
+✅ Exclusão de conta, desde que esteja com saldo zero.
+
 ✅ Listagens de clientes e contas com layout tipo “extrato” — blocos individuais com separadores dinâmicos.
 
 ✅ Persistência local em arquivo JSON (banco_de_dados.json) com tratamento robusto de arquivo não existente, vazio ou corrompido.
@@ -70,6 +72,8 @@ S — Sacar (valida saldo disponível).
 
 E — Exibir extrato (formato tabular com colunas DATA, HISTÓRICO, DOC, VALOR).
 
+X - Excluir Conta (validações de conta existente, saldo zero, campos obrigatórios)
+
 3 — Listar clientes (blocos individuais com separadores dinâmicos).
 
 4 — Listar contas (blocos individuais com separadores dinâmicos).
@@ -98,6 +102,12 @@ Lista de Clientes
 Lista de Contas
 
 <img width="482" height="439" alt="image" src="https://github.com/user-attachments/assets/aa238b46-77e4-4cc2-a359-9efbf06400a7" />
+
+<br></br>
+Exclusão de Contas
+
+<img width="487" height="369" alt="image" src="https://github.com/user-attachments/assets/e27c1ee5-af44-4cc1-a16e-21fe4b6e74c8" />
+
 
 Separadores aumentam dinamicamente para combinar com a maior linha do bloco (melhora leitura quando endereços são longos).
 
